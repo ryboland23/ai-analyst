@@ -146,7 +146,7 @@ Beat N: [Free resource — e.g., "Get the email course for free"]
 - Phase: Closing
 - Visual format: text slide (with QR code placement)
 
-Beat N+1: [Course/offering overview — e.g., "Go deeper with the full bootcamp"]
+Beat N+1: [Course/offering overview — e.g., "Go deeper with the full course"]
 - Phase: Closing
 - Visual format: text slide (with QR code placement)
 

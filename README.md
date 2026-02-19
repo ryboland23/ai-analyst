@@ -1,4 +1,4 @@
-# AI Analyst Bootcamp
+# AI Analyst
 
 A complete AI analyst system powered by Claude Code. You ask a business question. Claude frames it, explores your data, finds the root cause, builds a story, and hands you a branded slide deck with speaker notes. The whole thing takes minutes, not days.
 
@@ -36,7 +36,7 @@ npm install -g @anthropic-ai/claude-code
 
 ```bash
 git clone <repo-url>
-cd bootcamp
+cd ai-analyst
 claude
 ```
 
@@ -245,7 +245,7 @@ Your Data --> chart_helpers.py --> Base Chart (150 DPI)
 
 | Dataset | Path | Description |
 |---------|------|-------------|
-| NovaMart | `data/novamart/` | E-commerce analytics: events, users, products. The demo dataset for the bootcamp. |
+| NovaMart | `data/novamart/` | E-commerce analytics: events, users, products. The built-in demo dataset. |
 | Hero | `data/hero/` | Guided exercise dataset |
 | Examples | `data/examples/` | Curated public datasets with README guides |
 
@@ -493,4 +493,4 @@ Python modules in `helpers/` that agents call during execution:
 - **Setup issues:** [setup/prerequisites.md](setup/prerequisites.md)
 - **MCP configuration:** [setup/mcp-config.md](setup/mcp-config.md)
 - **MotherDuck setup:** [setup/motherduck-setup.md](setup/motherduck-setup.md)
-- **During the bootcamp:** Ask in the course Slack/Discord or flag an instructor
+- **Questions or bugs:** Open a [GitHub Issue](https://github.com/ai-analyst-lab/ai-analyst/issues)

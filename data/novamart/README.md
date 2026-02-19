@@ -2,7 +2,7 @@
 
 ## What is NovaMart?
 
-NovaMart is a **fictional mid-stage e-commerce marketplace** (think Amazon-like) that serves as the practice dataset for this bootcamp. It includes:
+NovaMart is a **fictional mid-stage e-commerce marketplace** (think Amazon-like) that serves as the built-in practice dataset. It includes:
 
 - **Multi-platform presence** -- web, iOS, and Android apps
 - **NovaMart Plus** -- a paid delivery membership program (like Amazon Prime)

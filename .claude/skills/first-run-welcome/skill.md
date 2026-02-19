@@ -30,7 +30,7 @@ Check three things:
 ### Step 2: Present welcome based on scenario
 
 #### Scenario A: NovaMart present, no user data
-_Most common for new bootcamp students._
+_Most common for new users._
 
 ```
 Welcome to the AI Analyst! I'm your analytical partner — I help you

@@ -21,4 +21,4 @@ If you're stuck or the exercise isn't working after 8 minutes, use this pre-buil
   2. New rule added: "Always respond with exactly 3 bullet points when summarizing findings."
 
 ## Note
-These are example modifications. Your own version might look different -- that's fine. The point is to prove that editing CLAUDE.md changes Claude Code's behavior. After the bootcamp, you should change it back to "AI Product Analyst" or set it to whatever persona fits your work.
+These are example modifications. Your own version might look different -- that's fine. The point is to prove that editing CLAUDE.md changes Claude Code's behavior. After experimenting, you should change it back to "AI Product Analyst" or set it to whatever persona fits your work.

@@ -1,8 +1,8 @@
 """
-Student-friendly error wrappers for the AI Analyst Bootcamp.
+User-friendly error wrappers for AI Analyst.
 
 Translates cryptic Python/SQL exceptions into plain-English messages with
-actionable suggestions. Designed for bootcamp students who are PMs,
+actionable suggestions. Designed for users who are PMs,
 designers, and engineers — not Python experts.
 
 Usage:
@@ -61,7 +61,7 @@ _SQL_HINTS = [
             "  orders, users, products, events, sessions, order_items,\n"
             "  promotions, experiments, experiment_assignments,\n"
             "  memberships, support_tickets, nps_responses, calendar\n"
-            "If using MotherDuck: bootcamp.novamart.TABLE\n"
+            "If using MotherDuck: novamart.TABLE\n"
             "If using local DuckDB: just TABLE (no schema prefix)"
         ),
     },
@@ -120,7 +120,7 @@ def friendly_error(exception, context=None):
     """Translate a Python exception into a student-friendly error message.
 
     Takes any exception and uses pattern matching on the exception type and
-    message to provide specific, actionable guidance. Designed for bootcamp
+    message to provide specific, actionable guidance. Designed for AI Analyst
     students who may not be experienced Python developers.
 
     Args:
@@ -173,7 +173,7 @@ def friendly_error(exception, context=None):
                 f"Install the missing package:\n"
                 f"  {pip_cmd}\n"
                 f"\n"
-                f"Common bootcamp packages:\n"
+                f"Common packages:\n"
                 f"  pip install duckdb pandas matplotlib scipy numpy"
             ),
             "technical": technical,

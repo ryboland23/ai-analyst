@@ -104,9 +104,17 @@ yarn-error.log*
 
 # Knowledge system -- user-specific files
 .knowledge/user/
-.knowledge/analyses/
-.knowledge/global/
 .knowledge/datasets/*/last_profile.md
+
+# Analyses archive (user-generated content ignored, seed files kept)
+.knowledge/analyses/*
+!.knowledge/analyses/index.yaml
+!.knowledge/analyses/_schema.yaml
+!.knowledge/analyses/_patterns.yaml
+
+# Global observations (user-generated content ignored, seed files kept)
+.knowledge/global/*
+!.knowledge/global/cross_dataset_observations.yaml
 
 # Archives
 *.zip

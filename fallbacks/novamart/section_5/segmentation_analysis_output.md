@@ -1,6 +1,6 @@
 # Segmentation Analysis: Which User Segments Have the Highest Engagement?
 **Generated:** 2025-02-27
-**Dataset:** bootcamp.novamart (events, users, products)
+**Dataset:** novamart (events, users, products)
 **Segments analyzed:** Plan type, Region, Signup cohort
 
 ## Executive Summary

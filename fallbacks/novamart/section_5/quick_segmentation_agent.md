@@ -7,7 +7,7 @@ insights -- all in one pass.
 
 ## Inputs
 - {{DATASET}}: The data source to analyze. Can be a file path (CSV, Parquet) or
-  a database table reference (e.g., `bootcamp.novamart` schema in MotherDuck).
+  a database table reference (e.g., `novamart` schema in MotherDuck).
 - {{QUESTION}}: The business question driving the segmentation. Should specify
   what outcome or metric we're trying to understand (e.g., "Which user segments
   have the highest engagement?" or "How do conversion rates differ by region?").

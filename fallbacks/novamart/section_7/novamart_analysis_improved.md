@@ -3,7 +3,7 @@
 # NovaMart Analysis v2: Why Are New User Conversions Declining?
 
 **Generated:** 2025-02-27 (Iteration 2)
-**Dataset:** bootcamp.novamart (events, users, products)
+**Dataset:** novamart (events, users, products)
 **Focus:** Funnel analysis + segmentation + behavioral drivers
 **Agent chain:** Data Explorer -> Descriptive Analytics (improved) -> Validation -> Storytelling (improved)
 **Chart theme:** Economist

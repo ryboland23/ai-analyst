@@ -98,12 +98,12 @@ Expected contents of `.claude/mcp.json` (with your token inserted):
 
 ---
 
-## Step 5: "List all the tables in the bootcamp database. How many rows?"
+## Step 5: "List all the tables in the novamart database. How many rows?"
 
 Expected Claude Code response:
 
 ```
-Here are the tables in the bootcamp.novamart schema:
+Here are the tables in the novamart schema:
 
 | Table              | Row Count |
 |--------------------|-----------|

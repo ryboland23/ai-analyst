@@ -1,5 +1,5 @@
 """
-Lightweight Data Lineage Tracker for the AI Analyst Bootcamp.
+Lightweight Data Lineage Tracker for AI Analyst.
 
 Logs how data flows through the analysis pipeline -- which agents produced
 which files, and what inputs they consumed. Automatically links parent

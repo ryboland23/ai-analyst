@@ -1,6 +1,6 @@
 # Troubleshooting Guide
 
-Common problems and fixes organized by category. If you hit an issue during the bootcamp, find it here.
+Common problems and fixes organized by category. If you hit an issue, find it here.
 
 ---
 
@@ -222,7 +222,7 @@ claude --version
    - `app.motherduck.com`
    - `registry.npmjs.org`
 
-**Prevention:** Test connectivity before the bootcamp. If your workplace blocks these services, plan to use a personal network or mobile hotspot.
+**Prevention:** Test connectivity before starting. If your workplace blocks these services, plan to use a personal network or mobile hotspot.
 
 ---
 
@@ -240,7 +240,7 @@ claude --version
 2. If still stuck, press Ctrl+C to cancel the current operation.
 3. If Claude Code is completely frozen, close the terminal and open a new one:
    ```bash
-   cd ~/Desktop/bootcamp
+   cd ~/Desktop/ai-analyst
    claude
    ```
 4. If it hangs consistently, check your internet connection and try again.
@@ -431,7 +431,7 @@ If your issue isn't listed here:
 
 1. **Search for the error message** -- copy the exact error text and search online.
 2. **Ask Claude Code** -- describe the problem and paste the error message. It can often diagnose and fix its own issues.
-3. **Ask in the bootcamp channel** -- post your error message and a description of what you were doing. Include your OS and the command that failed.
+3. **Open a GitHub Issue at https://github.com/ai-analyst-lab/ai-analyst/issues** -- post your error message and a description of what you were doing. Include your OS and the command that failed.
 4. **Flag an instructor** -- during live sessions, raise your hand or use the chat. We build in troubleshooting time for a reason.
 
 When reporting an issue, always include:

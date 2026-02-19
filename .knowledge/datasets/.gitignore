@@ -1,5 +1,5 @@
 # Gitignore for .knowledge/datasets/
-# NovaMart brain is committed (seed data for bootcamp).
+# NovaMart brain is committed (seed data shipped with the repo).
 # User-created datasets and profiling results are not.
 
 # Profiling results (generated, not source-controlled)

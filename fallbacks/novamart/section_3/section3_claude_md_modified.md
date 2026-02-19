@@ -1,4 +1,4 @@
-# CLAUDE.md -- AI Analyst Bootcamp
+# CLAUDE.md -- AI Analyst
 
 This file tells Claude Code how to behave in this repo. It turns Claude Code
 from a general-purpose assistant into an AI Marketing Analyst. Every section
@@ -115,7 +115,7 @@ question clearly.
 
 ### MotherDuck (Data Warehouse)
 - **Connection:** MCP -- configured in `.claude/mcp.json`
-- **Database:** `bootcamp`
+- **Database:** `novamart`
 - **Tables:**
   - `novamart.events` -- user interaction events (event_type, user_id, timestamp, properties)
   - `novamart.users` -- user profiles (user_id, signup_date, plan, region)

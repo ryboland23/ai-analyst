@@ -27,7 +27,7 @@ Connected Datasets:
 
   * novamart (active)
     NovaMart E-Commerce — 13 tables, 2024-01-01 to 2024-12-31
-    Connection: motherduck (bootcamp.novamart)
+    Connection: motherduck (novamart)
     Analyses: 0
 
   - {other_dataset}

@@ -2,7 +2,7 @@
 past this threshold, extract the agent table to agents/INDEX.md and the
 rules section to RULES.md, referenced from here. -->
 
-# CLAUDE.md -- AI Analyst Bootcamp
+# CLAUDE.md -- AI Analyst
 
 This file tells Claude Code how to behave in this repo. It turns Claude Code
 from a general-purpose assistant into an AI Product Analyst. Every section

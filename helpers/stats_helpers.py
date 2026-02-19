@@ -60,7 +60,7 @@ def format_significance(p_value, alpha=0.05):
 def interpret_effect_size(d, test_type="cohens_d"):
     """Translate a numeric effect size into a plain-English label.
 
-    Uses Cohen's conventions so bootcamp students can immediately understand
+    Uses Cohen's conventions so users can immediately understand
     what d=0.38 actually means in practice.
 
     Args:

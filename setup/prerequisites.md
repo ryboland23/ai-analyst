@@ -1,4 +1,4 @@
-# Pre-Bootcamp Setup Guide
+# Getting Started
 
 Everything you need to do before Day 1. Budget 15-20 minutes.
 
@@ -99,7 +99,7 @@ If you already use a terminal regularly, skip this section.
 
 **What is the terminal?** It's a text-based way to interact with your computer. Instead of clicking icons, you type commands. Claude Code runs inside the terminal.
 
-**Essential commands you'll use during the bootcamp:**
+**Essential commands you'll use:**
 
 | Command | What It Does | Example |
 |---|---|---|
@@ -119,7 +119,7 @@ If you already use a terminal regularly, skip this section.
 
 ## Step 4: Create a MotherDuck Account
 
-MotherDuck is the cloud data warehouse we use during the bootcamp. The free tier is all you need -- no credit card required.
+MotherDuck is the cloud data warehouse used with AI Analyst. The free tier is all you need -- no credit card required.
 
 1. Go to https://motherduck.com
 2. Click **Sign Up** (or "Get Started Free")
@@ -127,14 +127,14 @@ MotherDuck is the cloud data warehouse we use during the bootcamp. The free tier
 4. Complete the onboarding flow
 5. Once you're in the MotherDuck UI, click your profile icon (top right) and go to **Settings > Tokens**
 6. Click **Create Token**
-7. Name it something like `bootcamp-token`
-8. Copy the token and save it somewhere safe -- you'll need it during the bootcamp
+7. Name it something like `ai-analyst-token`
+8. Copy the token and save it somewhere safe -- you'll need it during setup
 
 **Do not share your token.** It grants access to your MotherDuck account.
 
 ---
 
-## Step 5: Clone the Bootcamp Repo
+## Step 5: Clone the Repo
 
 **Option A: Git clone (recommended)**
 
@@ -142,8 +142,8 @@ If you have `git` installed:
 
 ```bash
 cd ~/Desktop
-git clone https://github.com/your-org/bootcamp.git
-cd bootcamp
+git clone https://github.com/ai-analyst-lab/ai-analyst.git
+cd ai-analyst
 ```
 
 **Option B: Download as ZIP**
@@ -155,7 +155,7 @@ If you don't have `git`:
 4. Unzip the file
 5. Open your terminal and navigate to the unzipped folder:
    ```bash
-   cd ~/Desktop/bootcamp
+   cd ~/Desktop/ai-analyst
    ```
 
 **Verify the repo structure:**
@@ -175,7 +175,7 @@ This confirms everything is working together.
 **Start Claude Code inside the repo:**
 
 ```bash
-cd ~/Desktop/bootcamp
+cd ~/Desktop/ai-analyst
 claude
 ```
 
@@ -274,7 +274,7 @@ Add that line to your `~/.zshrc` or `~/.bashrc` so it persists.
   npm config set https-proxy http://your-proxy:port
   ```
 - If your company uses a VPN, try disconnecting during setup (reconnect after)
-- If your company blocks WebSocket connections, MotherDuck may not work -- use the local DuckDB fallback instead (instructions provided during the bootcamp)
+- If your company blocks WebSocket connections, MotherDuck may not work -- use the local DuckDB fallback instead (see [motherduck-setup.md](motherduck-setup.md))
 
 ### Windows: Install WSL first
 
@@ -333,7 +333,7 @@ The first time you run this, npx will download Marp CLI automatically. You shoul
 
 ---
 
-## Pre-Bootcamp Checklist
+## Setup Checklist
 
 Before Day 1, confirm all of the following:
 
@@ -342,7 +342,7 @@ Before Day 1, confirm all of the following:
 - [ ] Claude Code authenticated (running `claude` opens the prompt without errors)
 - [ ] MotherDuck account created (you can log in at motherduck.com)
 - [ ] MotherDuck token saved somewhere accessible
-- [ ] Bootcamp repo cloned/downloaded and on your machine
+- [ ] Repo cloned/downloaded and on your machine
 - [ ] Smoke test passed (Claude Code starts inside the repo and responds to a question)
 - [ ] Marp CLI available (`npx @marp-team/marp-cli --version` shows a version number)
 
@@ -352,4 +352,4 @@ If any of these fail, check the [Troubleshooting](#troubleshooting) section abov
 
 **Estimated time:** 15-20 minutes (assuming no network issues).
 
-**Having trouble?** Bring your questions to Day 1 -- we have dedicated setup time and instructors to help. You can also post in the course Slack/Discord channel before the bootcamp starts.
+**Having trouble?** Open a [GitHub Issue](https://github.com/ai-analyst-lab/ai-analyst/issues) with your error message and OS details.

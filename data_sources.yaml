@@ -7,7 +7,7 @@ sources:
     display_name: "NovaMart E-Commerce"
     description: "Fictional mid-stage e-commerce marketplace (50K users, 6.5M events, 13 tables)"
     connection_type: "motherduck"
-    database: "bootcamp"
+    database: "novamart"
     schema_prefix: "novamart"
     data_dir: "data/novamart/"
     fallback_dir: "data/novamart/"

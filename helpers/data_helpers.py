@@ -48,7 +48,7 @@ except ImportError:
 
 
 # ---------------------------------------------------------------------------
-# Default paths (relative to bootcamp/repo/)
+# Default paths (relative to project root)
 # ---------------------------------------------------------------------------
 
 _DEFAULT_DUCKDB_PATH = "data/novamart/novamart_practice.duckdb"

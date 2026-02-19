@@ -1,6 +1,6 @@
 # Claude Code Installation Guide
 
-Claude Code is an AI coding assistant that runs in your terminal. Instead of switching between a chat window and your tools, you type natural language directly into your terminal and Claude Code executes commands, queries databases, writes files, and analyzes data on your behalf. It is the engine that powers everything in this bootcamp.
+Claude Code is an AI coding assistant that runs in your terminal. Instead of switching between a chat window and your tools, you type natural language directly into your terminal and Claude Code executes commands, queries databases, writes files, and analyzes data on your behalf. It is the engine that powers everything in AI Analyst.
 
 ---
 
@@ -157,10 +157,10 @@ Type `/exit` to close Claude Code for now.
 
 ## Step 4: Verify Installation
 
-Open your terminal and navigate to the bootcamp repo (adjust the path if you cloned it somewhere else):
+Open your terminal and navigate to the AI Analyst repo (adjust the path if you cloned it somewhere else):
 
 ```bash
-cd ~/Desktop/bootcamp
+cd ~/Desktop/ai-analyst
 ```
 
 Start Claude Code:
@@ -308,7 +308,7 @@ This works but is not recommended as a long-term habit.
 
 ---
 
-## Pre-Bootcamp Checklist
+## Setup Checklist
 
 Before Day 1, confirm all of the following:
 
@@ -316,7 +316,7 @@ Before Day 1, confirm all of the following:
 - [ ] Claude Code installed (`claude --version` shows a version number)
 - [ ] Authenticated successfully (running `claude` opens the prompt without errors)
 - [ ] Can run a basic command (Claude Code responds when you ask it a question)
-- [ ] Bootcamp repo cloned (`ls` in the repo shows `CLAUDE.md`, `agents/`, `setup/`, etc.)
+- [ ] Repo cloned (`ls` in the repo shows `CLAUDE.md`, `agents/`, `setup/`, etc.)
 
 If any of these fail, check the [Troubleshooting](#troubleshooting) section above or the full [troubleshooting guide](troubleshooting.md).
 
@@ -324,4 +324,4 @@ If any of these fail, check the [Troubleshooting](#troubleshooting) section abov
 
 **Estimated time:** 10-15 minutes on a standard setup.
 
-**Having trouble?** Post in the bootcamp Slack/Discord channel before Day 1, or bring your questions to the session -- we build in dedicated setup time.
+**Having trouble?** Open a [GitHub Issue](https://github.com/ai-analyst-lab/ai-analyst/issues) with your error message and OS details.

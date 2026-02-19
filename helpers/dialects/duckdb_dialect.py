@@ -1,6 +1,6 @@
 """DuckDB SQL dialect adapter.
 
-DuckDB is the primary local engine for the AI Analyst Bootcamp.  Its SQL
+DuckDB is the primary local engine for AI Analyst.  Its SQL
 is largely PostgreSQL-compatible with a few extensions (USING SAMPLE,
 DESCRIBE, native date_diff).
 """

@@ -1,6 +1,6 @@
 # MotherDuck Setup Guide
 
-Everything you need to connect to MotherDuck, load the bootcamp data, and start querying. Budget 10 minutes.
+Everything you need to connect to MotherDuck, load the demo data, and start querying. Budget 10 minutes.
 
 ---
 
@@ -12,13 +12,13 @@ MotherDuck is a cloud data warehouse built on DuckDB. It lets you run SQL querie
 
 ## Why MotherDuck?
 
-We chose MotherDuck as the bootcamp data warehouse for five reasons:
+We chose MotherDuck as the data warehouse for five reasons:
 
 1. **Fast.** Queries run in milliseconds to seconds, even on millions of rows. No waiting for clusters to spin up.
 2. **SQL-based.** You write standard SQL -- the same patterns you would use in Snowflake, BigQuery, or Postgres. Skills transfer directly.
-3. **Free.** The free tier is more than enough for everything in this bootcamp. No credit card, no trial countdown.
+3. **Free.** The free tier is more than enough for everything in AI Analyst. No credit card, no trial countdown.
 4. **MCP connector.** MotherDuck has an official MCP server, which means Claude Code can query your data warehouse directly from the terminal. No copy-pasting query results.
-5. **Bring your own data.** You can upload CSVs, Parquet files, or load data from URLs at any time. During the bootcamp, you will analyze the NovaMart dataset we provide -- but you can also load your own data and analyze it the same way.
+5. **Bring your own data.** You can upload CSVs, Parquet files, or load data from URLs at any time. The NovaMart dataset ships with the repo, and you can also load your own data and analyze it the same way.
 
 ---
 
@@ -41,7 +41,7 @@ Claude Code connects to MotherDuck using an access token. You need to create one
 2. Click your **profile icon** (top right corner)
 3. Go to **Settings > Tokens**
 4. Click **Create Token**
-5. Name it `bootcamp-token` (or any name you will remember)
+5. Name it `ai-analyst-token` (or any name you will remember)
 6. Click **Create**
 7. **Copy the token immediately** -- you will not be able to see it again after leaving this page
 
@@ -55,7 +55,7 @@ Now you will configure Claude Code to talk to MotherDuck using MCP (Model Contex
 
 ### Add MotherDuck to your MCP configuration
 
-Open (or create) the file `.claude/mcp.json` in the root of your bootcamp repo:
+Open (or create) the file `.claude/mcp.json` in the root of your AI Analyst repo:
 
 ```json
 {
@@ -78,10 +78,10 @@ Replace `your-motherduck-token-here` with the token you copied in Step 2.
 
 ### Test the connection
 
-Start Claude Code from the bootcamp repo:
+Start Claude Code from the AI Analyst repo:
 
 ```bash
-cd ~/Desktop/bootcamp
+cd ~/Desktop/ai-analyst
 claude
 ```
 
@@ -99,9 +99,9 @@ Claude Code loads MCP connections at startup. If you change `.claude/mcp.json`, 
 
 ---
 
-## Step 4: Load the Bootcamp Data
+## Step 4: Verify the Demo Data
 
-The NovaMart demo dataset is pre-loaded in a shared MotherDuck database. You do not need to import anything -- it is already there and ready to query. (After the bootcamp, you can connect your own datasets using `/connect-data`.)
+The NovaMart demo dataset is pre-loaded in a shared MotherDuck database. You do not need to import anything -- it is already there and ready to query. (You can also connect your own datasets using `/connect-data`.)
 
 ### Verify the data is accessible
 
@@ -115,7 +115,7 @@ You should see a row count (the exact number depends on the dataset version, but
 
 ### Available tables
 
-The bootcamp database contains three tables:
+The database contains three tables:
 
 | Table | Description | Key Columns |
 |---|---|---|
@@ -133,7 +133,7 @@ Describe the novamart.events table. Show me the columns, data types, and a few s
 
 ## Step 5: Load Your Own Data
 
-One of the best things about MotherDuck is how easy it is to load your own data. You can bring CSVs, Parquet files, or pull data from URLs -- and then analyze it with the same tools and workflows you use for the bootcamp dataset.
+One of the best things about MotherDuck is how easy it is to load your own data. You can bring CSVs, Parquet files, or pull data from URLs -- and then analyze it with the same tools and workflows you use for the demo dataset.
 
 ### Upload a CSV
 
@@ -212,7 +212,7 @@ Key differences from the MotherDuck config:
 - `MOTHERDUCK_TOKEN` is set to an empty string (no cloud connection)
 - `DUCKDB_PATH` points to a local database file
 
-### Load the bootcamp data locally
+### Load the demo data locally
 
 Since the data is not in the cloud, you need to load the CSV files from the repo:
 
@@ -275,8 +275,8 @@ Everything else stays the same. The queries you write against local DuckDB are i
    ```
    List all databases and tables available in MotherDuck.
    ```
-2. Check that you are connected to the right database. The bootcamp data lives in the `bootcamp` database under the `novamart` schema.
-3. If using local DuckDB, make sure you loaded the CSV files first (see [Load the bootcamp data locally](#load-the-bootcamp-data-locally)).
+2. Check that you are connected to the right database. The data lives in the `novamart` database under the `novamart` schema.
+3. If using local DuckDB, make sure you loaded the CSV files first (see [Load the demo data locally](#load-the-demo-data-locally)).
 4. Table names are case-sensitive in some contexts. Try using the exact casing shown in the [Available tables](#available-tables) section above.
 
 ---
@@ -343,4 +343,4 @@ For more MCP troubleshooting, see [mcp-config.md](mcp-config.md#troubleshooting-
 
 **Estimated time:** 10 minutes (account creation through first successful query).
 
-**Having trouble?** Check the [full troubleshooting guide](troubleshooting.md) or post in the bootcamp Slack/Discord channel. You can also bring questions to the live session -- we build in setup time on Day 1.
+**Having trouble?** Check the [full troubleshooting guide](troubleshooting.md) or open a [GitHub Issue](https://github.com/ai-analyst-lab/ai-analyst/issues).

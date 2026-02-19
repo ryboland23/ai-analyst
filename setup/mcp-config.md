@@ -44,7 +44,7 @@ The file contains a `mcpServers` object where each key is a connection name and 
 
 ## Database Connection: MotherDuck / DuckDB
 
-This is the primary data connection for the bootcamp. It lets Claude Code query your data warehouse directly.
+This is the primary data connection for AI Analyst. It lets Claude Code query your data warehouse directly.
 
 ### Full Configuration
 
@@ -75,7 +75,7 @@ Replace `your-motherduck-token-here` with the token you created during setup (se
 2. Click your profile icon (top right)
 3. Go to **Settings > Tokens**
 4. Click **Create Token**
-5. Name it `bootcamp-token`
+5. Name it `ai-analyst-token`
 6. Copy the token
 
 ### Local DuckDB Fallback
@@ -116,7 +116,7 @@ Then ask:
 List all tables in the database.
 ```
 
-If connected to MotherDuck with the bootcamp data loaded, you should see tables from the demo dataset (e.g., `novamart.events`, `novamart.users`, `novamart.products`).
+If connected to MotherDuck with the demo data loaded, you should see tables from the demo dataset (e.g., `novamart.events`, `novamart.users`, `novamart.products`).
 
 If you see an error, check [troubleshooting.md](troubleshooting.md#motherduck-wont-connect).
 
@@ -154,7 +154,7 @@ Replace `/path/to/your/data/directory` with the absolute path to the directory y
 
 ## Optional Connections
 
-These are not required for the bootcamp, but they demonstrate how MCP extends Claude Code's capabilities. Add any of these to the `mcpServers` object in your `.claude/mcp.json`.
+These are not required for AI Analyst, but they demonstrate how MCP extends Claude Code's capabilities. Add any of these to the `mcpServers` object in your `.claude/mcp.json`.
 
 ### Slack
 

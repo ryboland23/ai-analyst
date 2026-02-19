@@ -32,7 +32,7 @@ import matplotlib.ticker as mticker
 import numpy as np
 
 # ---------------------------------------------------------------------------
-# Color palette — source of truth: shared/brand/tokens.json
+# Color palette — source of truth: themes/analytics-dark.css
 # ---------------------------------------------------------------------------
 
 COLORS = {
