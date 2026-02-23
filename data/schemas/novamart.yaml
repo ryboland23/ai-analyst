@@ -1,9 +1,8 @@
-# novamart.yaml — Structured schema for the NovaMart seed dataset
+# novamart.yaml — Structured schema for the example e-commerce dataset
 # Source of truth for schema_to_markdown() rendering and schema_profiler validation.
-# Generated from .knowledge/datasets/novamart/schema.md
 
 dataset: novamart
-display_name: "NovaMart E-Commerce"
+display_name: "Example E-Commerce"
 domain: e-commerce
 date_range: "2024-01-01 to 2024-12-31"
 

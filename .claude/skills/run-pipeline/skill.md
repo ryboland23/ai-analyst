@@ -15,14 +15,14 @@ Invoke with: `/run-pipeline`, "run the full pipeline", "analyze end-to-end", or 
 | `context` | No | `"stakeholder readout"` | Presentation context: "stakeholder readout", "workshop", "talk", "team standup" |
 | `theme` | No | `analytics` (light) | Theme override: "analytics" (light) or "analytics-dark" (dark) |
 | `audience` | No | `"senior stakeholders"` | Who will see the deck — controls content density |
-| `dataset_name` | No | Derived from data_path | Short name for file naming (e.g., "hawaii", "novamart") |
+| `dataset_name` | No | Derived from data_path | Short name for file naming (e.g., "hawaii", "my_dataset") |
 | `plan` | No | `full_presentation` | Execution plan: `full_presentation`, `deep_dive`, `quick_chart`, `refresh_deck`, `validate_only`, or inline agent list |
 | `dry-run` | No | `false` | If `true`, print execution plan without running agents |
 | `agents` | No | — | Inline agent allow-list (e.g., `agents=question-framing,hypothesis,data-explorer`) |
 
 Arguments can be passed inline or prompted interactively:
 ```
-/run-pipeline data_path=data/novamart/ question="What's driving the decline in tourism revenue?" plan=deep_dive
+/run-pipeline data_path=data/your_dataset/ question="What's driving the decline in revenue?" plan=deep_dive
 /run-pipeline dry-run=true
 /run-pipeline plan=refresh_deck
 ```

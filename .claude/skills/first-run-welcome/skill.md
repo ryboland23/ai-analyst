@@ -19,13 +19,13 @@ Check five things:
    - If YES: This is a returning user. Skip this skill entirely.
    - If NO: Continue — this is a first run.
 
-2. **NovaMart data present?** → Check `data/novamart/` for CSV files
-   - If YES: NovaMart seed dataset is available for guided experience.
-   - If NO: NovaMart was removed or never installed.
-
-3. **Active dataset configured?** → `.knowledge/active.yaml`
-   - If YES and not "novamart": User has their own data connected.
+2. **Active dataset configured?** → `.knowledge/active.yaml`
+   - If YES: User has data connected.
    - If NO: No dataset configured yet.
+
+3. **Data files present?** → Check the active dataset's data directory for CSV files
+   - If YES: Dataset is available for analysis.
+   - If NO: Dataset may need to be connected or downloaded.
 
 4. **MCP settings configured?** → `.claude/mcp.json`
    - If MISSING: Show setup hint:
@@ -45,14 +45,14 @@ Check five things:
 
 ### Step 2: Present welcome based on scenario
 
-#### Scenario A: NovaMart present, no user data
-_Most common for new users._
+#### Scenario A: Dataset connected
+_User has data available for analysis._
 
 ```
 Welcome to the AI Analyst! I'm your analytical partner — I help you
 turn business questions into validated insights, charts, and presentations.
 
-You have the NovaMart demo dataset loaded (~8M rows of e-commerce data).
+You have [DATASET_NAME] loaded with [N] tables.
 Here's how to get started:
 
 **Try one of these:**
@@ -68,8 +68,8 @@ Here's how to get started:
 What would you like to explore?
 ```
 
-#### Scenario B: NovaMart removed, no user data
-_Student removed demo data but hasn't connected their own yet._
+#### Scenario B: No dataset connected
+_No data source has been configured yet._
 
 ```
 Welcome to the AI Analyst! I'm your analytical partner.
@@ -124,7 +124,7 @@ After the welcome exchange, hand off to normal operation:
 
 1. **Never show the welcome to returning users.** If profile.md exists,
    skip this skill entirely.
-2. **Never assume the user wants NovaMart.** Always present their options.
+2. **Never assume the user wants a specific dataset.** Always present their options.
 3. **Never overwhelm with feature lists.** Keep the welcome to 3 actions
    max. Details come through natural exploration.
 4. **Never block on welcome.** If the user already typed a question in

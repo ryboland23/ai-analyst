@@ -237,4 +237,4 @@ paused  → running     (resumed via /resume-pipeline)
 - **Never delete**: Overwrite in place during a run. Do not delete and recreate.
 - **One active state file**: Only one `working/pipeline_state.json` exists at a time. Starting a new pipeline overwrites the previous state.
 - **Step keys are strings**: JSON keys for steps use string representations ("4.5" not 4.5) to support half-steps.
-- **output_files are relative**: All paths in `output_files` are relative to the repo root (e.g. `working/storyboard_novamart.md`, `outputs/question_brief_2026-02-16.md`).
+- **output_files are relative**: All paths in `output_files` are relative to the repo root (e.g. `working/storyboard_my_dataset.md`, `outputs/question_brief_2026-02-16.md`).

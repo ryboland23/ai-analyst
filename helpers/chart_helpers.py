@@ -205,7 +205,7 @@ def action_title(ax, title, subtitle=None):
     Args:
         ax: Matplotlib Axes.
         title: The takeaway statement (e.g. "iOS drove the June spike").
-        subtitle: Context line (e.g. "NovaMart Support Tickets, 2024").
+        subtitle: Context line (e.g. "Support Tickets, 2024").
     """
     if subtitle:
         ax.text(0, 1.12, title, transform=ax.transAxes,

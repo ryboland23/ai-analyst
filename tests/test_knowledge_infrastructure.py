@@ -2,7 +2,7 @@
 Tests for .knowledge/ directory structure, dataset brain, metric schema,
 and analysis archive.
 
-Uses temporary directories (via conftest fixtures) instead of NovaMart data.
+Uses temporary directories (via conftest fixtures) instead of real dataset data.
 Validates that the knowledge infrastructure helpers work correctly for
 reading, writing, and listing YAML artifacts.
 """

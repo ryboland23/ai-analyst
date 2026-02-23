@@ -45,7 +45,7 @@ sessions.
    Read it at analysis start. Update it only via /switch-dataset or /connect-data.
 4. **Never modify .knowledge/ files during analysis** except `last_profile.md`
    and the `analyses/` archive (which are append-only or overwrite-only).
-5. **Committed vs gitignored:** NovaMart brain files are committed (seed data).
+5. **Committed vs gitignored:** Template and schema files are committed.
    User-created dataset brains, profiles, and analysis archives are gitignored.
 
 ## File Ownership
@@ -64,11 +64,10 @@ sessions.
 
 ## Versioning Policy
 
-- **Seed files** (NovaMart brain) are version-controlled and committed.
+- **Template and schema files** are version-controlled and committed.
 - **Generated files** (`last_profile.md`, `analyses/`, `global/`, `user/`)
   are gitignored — they are session artifacts, not source of truth.
-- **User-created dataset brains** are gitignored by `.knowledge/datasets/.gitignore`
-  (except the seed NovaMart dataset).
+- **User-created dataset brains** are gitignored by `.knowledge/datasets/.gitignore`.
 
 ## Cleanup
 
