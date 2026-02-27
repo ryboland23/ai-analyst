@@ -5,11 +5,25 @@
 [![Claude Code Required](https://img.shields.io/badge/requires-Claude%20Code-blueviolet.svg)](https://claude.ai/code)
 [![Tests](https://img.shields.io/badge/tests-606%20passing-brightgreen.svg)](#)
 
-A complete AI analyst system powered by Claude Code. You ask a business question. Claude frames it, explores your data, finds the root cause, builds a story, and hands you a branded slide deck with speaker notes. The whole thing takes minutes, not days.
-
-**Bring your own data.** No bundled datasets to configure — connect your CSVs, DuckDB, or warehouse with `/connect-data` and start analyzing immediately.
+An AI product analyst built on Claude Code. You ask a business question, it runs a pipeline of 18 agents that frame the question, explore your data, find the root cause, build a narrative, and hand you a validated slide deck with speaker notes. Minutes, not weeks.
 
 **18** specialized agents | **39** auto-applied skills | **20** slash commands | DAG-based parallel execution | PDF + HTML export
+
+---
+
+## Before You Start
+
+This is a tool for analysts, not a replacement for them. It handles about 80% of what a human analyst does. The 80% that takes all the time. But it only works if you're the expert.
+
+**You are the eval.** Run this on data you know like the back of your hand. Run it on the reports you were already going to run this week. When it picks the wrong column or misinterprets a metric, you'll catch it immediately because you've written that query before. You correct it, it saves the correction, and it doesn't make that mistake again. That's the whole loop. Look, know, correct, move on.
+
+Don't hand this to someone who can't validate the output. Don't run it on data you've never seen. The analyses it produces need your judgment before they go anywhere near a stakeholder. If you skip the validation, you'll get confident-sounding numbers that might be wrong. If you do the validation, you'll move faster than you ever have.
+
+**The byproduct of building this is the work itself.** You're not taking time off from your job to set up an AI tool. You're doing your actual work through it. The first analysis takes a bit longer because you're connecting data and teaching it your context. By the third one, you're faster than doing it by hand. By next week, you're doing 15 analyses instead of 5.
+
+**This doesn't work out of the box.** It's a starting point, not a finished product. The model capability is there with Opus 4.6, but you need to teach it your data, your metrics, your business context. Correct it when it's wrong. Grow it into something that works for your specific use case, or tear it apart and rebuild it how you want. The agents, skills, and pipeline are all markdown files you can read and modify. Nothing is hidden.
+
+**Bring your own data.** No bundled datasets. Connect your CSVs, local databases, or cloud warehouse with `/connect-data` and start analyzing.
 
 ---
 
