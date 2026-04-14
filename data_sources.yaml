@@ -2,15 +2,15 @@
 # Tracks HOW to connect. The data brain (WHAT it contains) lives in .knowledge/datasets/
 # The active dataset pointer is in .knowledge/active.yaml (not here).
 
-sources: {}
-  # Example entry:
-  # my_dataset:
-  #   display_name: "My Dataset"
-  #   description: "Description of the dataset"
-  #   connection_type: "duckdb"  # or "motherduck", "postgres", "bigquery", "snowflake", "csv"
-  #   database: "my_dataset"
-  #   schema_prefix: "my_dataset"
-  #   data_dir: "data/my_dataset/"
-  #   fallback_dir: "data/my_dataset/"
-  #   fallback_available: true
-  #   registered_at: "2026-02-23"
+sources:
+  databricks:
+    display_name: "Databricks (Udemy)"
+    description: "Udemy Databricks workspace — direct SQL via SQL warehouse and Genie space for natural language queries"
+    connection_type: "databricks"
+    server_hostname: "udemy-datainfra.cloud.databricks.com"
+    http_path: "/sql/1.0/warehouses/6df1bcdf2d3e9b8b"
+    databricks_profile: "databricks-sql"
+    genie_space_id: "01f035a7299211b993ca5988e83af6df"
+    catalog: "prod"
+    schema: "adhoc_team_business_analytics"
+    registered_at: "2026-03-04"

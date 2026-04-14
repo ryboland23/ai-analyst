@@ -2,7 +2,7 @@
 Connection Manager — unified interface for multi-warehouse connections.
 
 Manages connection lifecycle for different data warehouse backends:
-MotherDuck/DuckDB (native), PostgreSQL, BigQuery, and Snowflake.
+MotherDuck/DuckDB (native), PostgreSQL, BigQuery, Snowflake, and Databricks.
 
 Usage:
     from helpers.connection_manager import ConnectionManager
@@ -35,6 +35,12 @@ try:
 except ImportError:
     _YAML_AVAILABLE = False
 
+try:
+    from databricks import sql as _databricks_sql
+    _DATABRICKS_AVAILABLE = True
+except ImportError:
+    _DATABRICKS_AVAILABLE = False
+
 
 # Supported connection types and their required packages.
 SUPPORTED_TYPES = {
@@ -44,6 +50,7 @@ SUPPORTED_TYPES = {
     "postgres": {"package": "psycopg2", "installed": False},
     "bigquery": {"package": "google-cloud-bigquery", "installed": False},
     "snowflake": {"package": "snowflake-connector-python", "installed": False},
+    "databricks": {"package": "databricks-sql-connector", "installed": _DATABRICKS_AVAILABLE},
 }
 
 
@@ -139,6 +146,8 @@ class ConnectionManager:
             self._connect_bigquery()
         elif conn_type == "snowflake":
             self._connect_snowflake()
+        elif conn_type == "databricks":
+            self._connect_databricks()
         elif conn_type == "csv":
             self._connect_csv()
         else:
@@ -180,6 +189,15 @@ class ConnectionManager:
                 cur.fetchone()
                 cur.close()
                 return {"ok": True, "type": "postgres", "message": "Connected"}
+
+            elif self._conn_type == "databricks":
+                if self._connection is None:
+                    self.connect()
+                cursor = self._connection.cursor()
+                cursor.execute("SELECT 1")
+                cursor.fetchone()
+                cursor.close()
+                return {"ok": True, "type": "databricks", "message": "Connected to Databricks SQL warehouse"}
 
             elif self._conn_type == "csv":
                 csv_dir = self._csv_dir or self._config.get("csv_path", "")
@@ -226,6 +244,16 @@ class ConnectionManager:
             except Exception:
                 return []
 
+        elif self._conn_type == "databricks" and self._connection:
+            try:
+                cursor = self._connection.cursor()
+                cursor.tables()
+                tables = sorted(row.TABLE_NAME for row in cursor.fetchall())
+                cursor.close()
+                return tables
+            except Exception:
+                return []
+
         elif self._conn_type == "csv":
             csv_dir = self._csv_dir or self._config.get("csv_path", "")
             if Path(csv_dir).is_dir():
@@ -253,6 +281,23 @@ class ConnectionManager:
                         "type": row.get("column_type", row.get("Type", "")),
                         "nullable": row.get("null", "YES") == "YES",
                     })
+                return columns
+            except Exception:
+                return []
+
+        elif self._conn_type == "databricks" and self._connection:
+            try:
+                cursor = self._connection.cursor()
+                cursor.columns(table_name=table_name)
+                columns = [
+                    {
+                        "name": row.COLUMN_NAME,
+                        "type": row.TYPE_NAME,
+                        "nullable": row.IS_NULLABLE == "YES",
+                    }
+                    for row in cursor.fetchall()
+                ]
+                cursor.close()
                 return columns
             except Exception:
                 return []
@@ -288,6 +333,14 @@ class ConnectionManager:
         elif self._conn_type == "postgres" and self._connection:
             return pd.read_sql(sql, self._connection)
 
+        elif self._conn_type == "databricks" and self._connection:
+            cursor = self._connection.cursor()
+            cursor.execute(sql)
+            columns = [desc[0] for desc in cursor.description]
+            rows = cursor.fetchall()
+            cursor.close()
+            return pd.DataFrame(rows, columns=columns)
+
         raise RuntimeError(
             f"SQL queries not supported for connection type: {self._conn_type}. "
             "Use read_table() for CSV data."
@@ -317,6 +370,14 @@ class ConnectionManager:
         elif self._conn_type == "postgres" and self._connection:
             schema = self._schema_prefix or "public"
             return pd.read_sql(f"SELECT * FROM {schema}.{table_name}", self._connection)
+
+        elif self._conn_type == "databricks" and self._connection:
+            qualified = (
+                f"{self._schema_prefix}.{table_name}"
+                if self._schema_prefix
+                else table_name
+            )
+            return self.query(f"SELECT * FROM {qualified}")
 
         raise RuntimeError(f"Cannot read table for connection type: {self._conn_type}")
 
@@ -432,3 +493,81 @@ class ConnectionManager:
         )
         self._schema_prefix = conn_config.get("schema", "public")
         self._conn_type = "snowflake"
+
+    def _connect_databricks(self):
+        """Connect to Databricks SQL warehouse. Requires databricks-sql-connector.
+
+        Credential resolution order:
+          1. Explicit values in the manifest connection config
+          2. Environment variables (DATABRICKS_SERVER_HOSTNAME, DATABRICKS_HTTP_PATH,
+             DATABRICKS_TOKEN)
+          3. ~/.databrickscfg profile (default: 'databricks-sql')
+        """
+        if not _DATABRICKS_AVAILABLE:
+            raise ConnectionError(
+                "databricks-sql-connector not installed. "
+                "Install with: pip install databricks-sql-connector"
+            )
+
+        import os
+        conn_config = self._config.get("connection", {})
+
+        server_hostname = (
+            conn_config.get("server_hostname")
+            or os.environ.get("DATABRICKS_SERVER_HOSTNAME")
+            or "udemy-datainfra.cloud.databricks.com"
+        )
+        http_path = (
+            conn_config.get("http_path")
+            or os.environ.get("DATABRICKS_HTTP_PATH")
+        )
+        access_token = (
+            conn_config.get("access_token")
+            or os.environ.get("DATABRICKS_TOKEN")
+            or self._get_token_from_cfg(
+                conn_config.get("databricks_profile", "databricks-sql")
+            )
+        )
+
+        if not http_path:
+            raise ConnectionError(
+                "Databricks http_path is required. Set it in the manifest "
+                "connection config or via the DATABRICKS_HTTP_PATH env var."
+            )
+        if not access_token:
+            raise ConnectionError(
+                "Databricks access_token is required. Set it in the manifest, "
+                "via DATABRICKS_TOKEN env var, or in ~/.databrickscfg under "
+                "[databricks-sql]."
+            )
+
+        self._connection = _databricks_sql.connect(
+            server_hostname=server_hostname,
+            http_path=http_path,
+            access_token=access_token,
+        )
+
+        # Set schema prefix from catalog + schema if provided
+        catalog = conn_config.get("catalog")
+        schema = conn_config.get("schema")
+        if catalog and schema:
+            self._schema_prefix = f"{catalog}.{schema}"
+        elif catalog:
+            self._schema_prefix = catalog
+        elif schema:
+            self._schema_prefix = schema
+
+        self._conn_type = "databricks"
+
+    @staticmethod
+    def _get_token_from_cfg(profile: str) -> "str | None":
+        """Read a token from ~/.databrickscfg for the given profile name."""
+        import configparser
+        cfg_path = Path.home() / ".databrickscfg"
+        if not cfg_path.exists():
+            return None
+        parser = configparser.ConfigParser()
+        parser.read(cfg_path)
+        if profile in parser:
+            return parser[profile].get("token")
+        return None
